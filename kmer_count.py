@@ -1,8 +1,24 @@
+#!/usr/bin/env python
 from collections import Counter, defaultdict
+from PatternsNumbers import NumberToPattern, PatternToNumber
 
 def main():
-    dna = open("E-coli.txt").read()
-    print count_kmers_v2(s=dna, k=9, t=3, L=500)
+    #dna = open("E-coli.txt").read()
+    #print count_kmers_v2(s=dna, k=9, t=3, L=500)
+   
+    f = open("dataset_2994_5.txt")
+    text = f.readline().strip()
+    k = int(f.readline())
+    f.close()
+
+    freqs = ComputingFrequencies(text, k)
+    
+    #f = open("result.txt", "w")
+    #for el in freqs:
+    #    f.write("{} ".format(el))
+    #f.close()
+
+
 
 def count_kmers_v2(s, k, t, L):
 
@@ -50,6 +66,18 @@ def count_kmers(s, k, t, L):
             kmers_pass.add(new)
     
     return len(kmers_pass)
+
+
+def ComputingFrequencies(text, k):
+    FrequencyArray = [0]*(4**k)
+
+    for i in range(len(text) - k + 1):
+        Pattern = text[i:i + k]
+        j = PatternToNumber(Pattern)
+        FrequencyArray[j] += 1
+
+    return FrequencyArray
+
 
 if __name__ == "__main__":
     main()

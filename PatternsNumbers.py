@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 NumberToSymbol = {0:'A', 1:'C', 2:'G', 3:'T'}
 SymbolToNumber = {'A':0, 'C':1, 'G':2, 'T':3}
 
@@ -23,7 +23,7 @@ def PatternToNumber(pattern):
     return 4 * PatternToNumber(pattern[:-1]) + SymbolToNumber[pattern[-1]]
 
 if __name__ == "__main__":
-    NumberToPattern2(732723242334323249, 20)
-    import timeit
-    print(timeit.timeit("NumberToPattern2(732723242334323242342343892378972348989238923233, 100)", setup="from __main__ import NumberToPattern2"))
-    #print PatternToNumber('GATACAGGGAATAACA')
+    print(NumberToPattern2(15, 3))
+    #import timeit
+    #yprint(timeit.timeit("NumberToPattern2(15, 3)", setup="from __main__ import NumberToPattern2"))
+    ##print PatternToNumber('GATACAGGGAATAACA')
