@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 from collections import Counter, defaultdict
 from PatternsNumbers import NumberToPattern, PatternToNumber
 
